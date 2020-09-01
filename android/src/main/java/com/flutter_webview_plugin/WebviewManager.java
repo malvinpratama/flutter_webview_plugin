@@ -235,15 +235,9 @@ class WebviewManager {
                     intentList.add(takeVideoIntent);
                 }
                 Intent contentSelectionIntent;
-                if (Build.VERSION.SDK_INT >= 21) {
-                    final boolean allowMultiple = fileChooserParams.getMode() == FileChooserParams.MODE_OPEN_MULTIPLE;
-                    contentSelectionIntent = fileChooserParams.createIntent();
-                    contentSelectionIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, allowMultiple);
-                } else {
-                    contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                    contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);
-                    contentSelectionIntent.setType("image/*");
-                }
+                contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);
+                contentSelectionIntent.setType("*/*");
                 Intent[] intentArray = intentList.toArray(new Intent[intentList.size()]);
 
                 Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
