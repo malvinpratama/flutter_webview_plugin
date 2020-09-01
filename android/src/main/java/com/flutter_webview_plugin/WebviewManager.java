@@ -242,7 +242,7 @@ class WebviewManager {
                 } else {
                     contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
                     contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);
-                    contentSelectionIntent.setType("*/*");
+                    contentSelectionIntent.setType("image/*");
                 }
                 Intent[] intentArray = intentList.toArray(new Intent[intentList.size()]);
 
